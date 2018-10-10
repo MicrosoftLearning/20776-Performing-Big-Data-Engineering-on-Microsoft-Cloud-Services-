@@ -32,6 +32,9 @@ namespace PatrolCar
                 Trace.WriteLine("One or more parameters missing in appsettings (app.config)");
                 return;
             }
+            
+            // Change Culture settings to en-US
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
 
             var driver = new PatrolCarsDriver(connectionString, iotHubUri, int.Parse(numCars), double.Parse(latNorth), 
                 double.Parse(latSouth), double.Parse(longEast), double.Parse(longWest), 
